@@ -20,16 +20,25 @@ The pipeline integrates ClinVar, Ensembl VEP, gnomAD, dbNSFP, and Mutalyzer to p
 ## Pipeline Architecture
 
 ```text
-ClinVar / gnomAD / dbNSFP / VEP
-                ↓
-        Variant Normalization
-                ↓
-      Functional Annotation
-                ↓
-       SQLite Indexed Storage
-                ↓
-      Statistical Analysis &
-      Glycine Hotspot Mapping
+ClinVar Extraction
+        ↓
+HGVS Generation / Normalization
+        ↓
+Ensembl VEP Annotation
+        ↓
+dbNSFP + gnomAD Annotation
+        ↓
+Mutalyzer Validation / Protein HGVS Conversion
+        ↓
+Rare & Damaging Variant Filtering
+        ↓
+SQLite Indexed Storage / Query Optimization
+        ↓
+Structural Domain Mapping
+        ↓
+Statistical Analysis
+        ↓
+Glycine Hotspot Mapping & Candidate Prioritization
 ```
 
 ## Tech Stack
