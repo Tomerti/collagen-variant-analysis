@@ -15,6 +15,22 @@ The pipeline integrates ClinVar, Ensembl VEP, gnomAD, dbNSFP, and Mutalyzer to p
 - Processed 1TB of biological annotation data
 - Generated collagen-family glycine hotspot mapping
 - Prioritized ECM candidate genes including COL12A1 and COL6A3
+- Reduced large-scale annotation lookup time from 22h → 40m using SQLite indexing
+
+## Pipeline Architecture
+
+```text
+ClinVar / gnomAD / dbNSFP / VEP
+                ↓
+        Variant Normalization
+                ↓
+      Functional Annotation
+                ↓
+       SQLite Indexed Storage
+                ↓
+      Statistical Analysis &
+      Glycine Hotspot Mapping
+```
 
 ## Tech Stack
 
